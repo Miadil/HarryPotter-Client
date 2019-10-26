@@ -16,7 +16,7 @@ const Header = () => {
           <li className="itemNavMenu">Characters</li>
         </NavLink>
         <NavLink to="/spell" className="linkNav" activeClassName="chosen">
-          <li className="itemNavMenu">Spell</li>
+          <li className="itemNavMenu">Spells</li>
         </NavLink>
       </ul>
     </div>
