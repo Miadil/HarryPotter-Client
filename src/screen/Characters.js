@@ -19,7 +19,6 @@ class Characters extends React.Component {
       )
   }
   render() {
-    console.log(" state: ", this.state.characters)
     return (
       <div>
         <p>Characters</p>
