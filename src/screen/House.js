@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import axios from "axios"
 import Card from "../components/Card"
 
 import "./House.css"
@@ -9,16 +9,15 @@ class House extends Component {
     HouseCharacters: [],
     isLoading: false
   }
-  getCharacterHouse = () => {
+
+  getCharacterHouse = async () => {
     const { house } = this.props.match.params
-    fetch(`https://harrypotterapi20.herokuapp.com/characters/houses/${house}`)
-      .then(res => res.json())
-      .then(
-        res =>
-          console.log("res: ", res) ||
-          this.setState({ HouseCharacters: res, isLoading: true })
-      )
+    const res = await axios.get(
+      `https://harrypotterapi20.herokuapp.com/characters/houses/${house}`
+    )
+    await this.setState({ HouseCharacters: res.data, isLoading: true })
   }
+
   componentDidMount() {
     this.getCharacterHouse()
   }

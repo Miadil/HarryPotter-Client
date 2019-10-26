@@ -1,14 +1,17 @@
 import React, { Component } from "react"
 
+import axios from "axios"
+
 class CharacterDetail extends Component {
   state = {
     data: []
   }
-  getData = () => {
+  getData = async () => {
     const { id } = this.props.match.params
-    fetch(`https://harrypotterapi20.herokuapp.com/characters/${id}`)
-      .then(res => res.json())
-      .then(res => this.setState({ data: res[0] }))
+    const res = await axios.get(
+      `https://harrypotterapi20.herokuapp.com/characters/${id}`
+    )
+    await this.setState({ data: res.data[0] })
   }
   componentDidMount() {
     this.getData()

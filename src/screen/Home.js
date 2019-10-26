@@ -1,14 +1,22 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import houses from "../assets/json/houses.json"
+import axios from "axios"
+// import houses from "../assets/json/houses.json"
 import "./Home.css"
 
 class Home extends React.Component {
   state = {
-    house: []
+    houses: []
   }
-
+  getData = async () => {
+    const res = await axios.get(`https://harrypotterapi20.herokuapp.com/houses`)
+    await this.setState({ houses: res.data })
+  }
+  componentDidMount() {
+    this.getData()
+  }
   render() {
+    const { houses } = this.state
     return (
       <div>
         <div>
