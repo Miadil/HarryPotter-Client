@@ -6,7 +6,7 @@ class Spell extends Component {
   }
   getData = () => {
     console.log("je suis dans getData")
-    fetch("http://localhost:4242/spell")
+    fetch("http://harrypotterapi20.herokuapp.com/spell")
       .then(res => res.json())
       .then(res => this.setState({ spells: res }))
   }
