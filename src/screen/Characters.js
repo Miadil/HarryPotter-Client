@@ -9,18 +9,11 @@ import "./Characters.css"
 
 class Characters extends React.Component {
   componentDidMount = async () => {
-    // fetch("https://harrypotterapi20.herokuapp.com/characters")
-    //   .then(res => res.json())
-    //   .then(
-    //     res =>
-    //       console.log("FETCH : ", res) ||
-    //       this.setState({ characters: res, isLoading: true })
-    //   )
-    await this.props.actions.characters.getCharacters()
-    console.log("this.props:  ", this)
+    await this.props.actions.characters.getCharacters(
+      "https://harrypotterapi20.herokuapp.com/characters"
+    )
   }
   render() {
-    console.log("in render", this.props)
     return (
       <div>
         <p>Characters</p>

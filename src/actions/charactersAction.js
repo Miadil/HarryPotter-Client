@@ -21,10 +21,10 @@ const fetchFailed = error => {
   }
 }
 
-export const getCharacters = () => disptach => {
+export const getCharacters = url => disptach => {
   disptach(fetchStarted())
   axios
-    .get("https://harrypotterapi20.herokuapp.com/characters")
+    .get(url)
     .then(data => disptach(fetchSucced(data.data)))
     .catch(err => disptach(fetchFailed(err)))
 }
