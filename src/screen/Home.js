@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
-// import axios from "axios"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
+
 import allTheActions from "../actions"
+
 import "./Home.css"
 
 class Home extends React.Component {
@@ -27,9 +28,11 @@ class Home extends React.Component {
           {this.props.loadingState ? (
             this.props.housesState.map((elem, index) => {
               return (
-                <Link key={index} to={`/house/${elem.house}`}>
-                  <img className="HomeLogo" src={elem.img} alt="poudlard" />
-                </Link>
+                <>
+                  <Link key={index} to={`/house/${elem.house}`}>
+                    <img className="HomeLogo" src={elem.img} alt="poudlard" />
+                  </Link>
+                </>
               )
             })
           ) : (
